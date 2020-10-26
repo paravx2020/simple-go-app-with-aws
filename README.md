@@ -425,14 +425,15 @@ To perform exactly these actions, run the following command to apply:
 
 $ 
 ```
-<output truncated>
-    ...
-    ...
-    ...
     
 And finally, terraform apply "plan0001" 
 
 ```
+<output truncated>
+*    ...
+*    ...
+*    ...
+
 Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 
 The state of your infrastructure has been saved to the path
