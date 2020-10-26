@@ -463,7 +463,8 @@ Now you open the browser, and paste the **steeleye-26553243.eu-west-1.elb.amazon
 
 When you refresh the browser, you can see the output similar to
 
-Hi there, I'm served from ip-172-31-42-97!   or    Hi there, I'm served from ip-172-31-39-152!
+* *Hi there, I'm served from ip-172-31-42-97!*   or    
+* *Hi there, I'm served from ip-172-31-39-152!*
 
 
 ********* E N D *************
