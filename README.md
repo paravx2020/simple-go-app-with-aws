@@ -10,15 +10,15 @@ The application is for displaying the output as:
   
 The folder structure of the project is:
 ```
+.
 ├── app.tf
 ├── elb.tf
-├── plan0001
+├── README.md
 ├── setup.sh
 ├── src
 │   └── steeleye-app.go
-├── terraform.tfstate
-├── terraform.tfstate.backup
 └── variables.tf
+
 ```
 
 ## Terraform is being used for both provisioning and bootstrapping the ec2 instances to launch the app, "steeleye-app.go" :
