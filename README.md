@@ -449,6 +449,16 @@ DNS = ec2-54-75-14-167.eu-west-1.compute.amazonaws.com and ec2-34-251-110-249.eu
 elb_dns_name = steeleye-26553243.eu-west-1.elb.amazonaws.com
 $
 ```
+## OUTPUTS
 
+### EC2 instances with their public DNS:
+
+* ec2-54-75-14-167.eu-west-1.compute.amazonaws.com and 
+* ec2-34-251-110-249.eu-west-1.compute.amazonaws.com
+
+### Load Balancer DNS 
+elb_dns_name = steeleye-26553243.eu-west-1.elb.amazonaws.com
+
+Now you open the browser, and paste the **steeleye-26553243.eu-west-1.elb.amazonaws.com:8484/**
 
 
