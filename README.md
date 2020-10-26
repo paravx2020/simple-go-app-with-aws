@@ -32,6 +32,18 @@ The folder structure of the project is:
 
 ## Deployment
 
+Step1:
+Clone the github repo,  git clone git@github.com:paravx2020/simple-go-app-with-aws.git
+
+Step2:
+Make sure you are good with 
+
+a) aws configure - setting up your ACCESS_KEY and SECRET_KEY
+b) you have appropriate private-key is in place in the home folder. Or you can modify the app.tf & variables.tf according to your setup 
+
+Step3:
+Run terraform commands as shown below
+
 
 
 
