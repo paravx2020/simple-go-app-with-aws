@@ -78,8 +78,376 @@ Once terraform initialized run the commands
 - terraform plan -out plan0001 (and makesure no errors/warnings are present)
 - terraform apply "plan0001"
 
+```
+$ terraform plan -out plan0001
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
 
+data.aws_availability_zones.available: Refreshing state...
+data.aws_vpc.default: Refreshing state...
 
+------------------------------------------------------------------------
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_elb.example will be created
+  + resource "aws_elb" "example" {
+      + arn                         = (known after apply)
+      + availability_zones          = [
+          + "eu-west-1a",
+          + "eu-west-1b",
+        ]
+      + connection_draining         = true
+      + connection_draining_timeout = 400
+      + cross_zone_load_balancing   = true
+      + dns_name                    = (known after apply)
+      + id                          = (known after apply)
+      + idle_timeout                = 400
+      + instances                   = (known after apply)
+      + internal                    = (known after apply)
+      + name                        = "steeleye"
+      + security_groups             = (known after apply)
+      + source_security_group       = (known after apply)
+      + source_security_group_id    = (known after apply)
+      + subnets                     = (known after apply)
+      + zone_id                     = (known after apply)
+
+      + health_check {
+          + healthy_threshold   = 2
+          + interval            = 30
+          + target              = "HTTP:8484/"
+          + timeout             = 3
+          + unhealthy_threshold = 2
+        }
+
+      + listener {
+          + instance_port     = 8484
+          + instance_protocol = "http"
+          + lb_port           = 8484
+          + lb_protocol       = "http"
+        }
+    }
+
+  # aws_elb_attachment.myattach[0] will be created
+  + resource "aws_elb_attachment" "myattach" {
+      + elb      = (known after apply)
+      + id       = (known after apply)
+      + instance = (known after apply)
+    }
+
+  # aws_elb_attachment.myattach[1] will be created
+  + resource "aws_elb_attachment" "myattach" {
+      + elb      = (known after apply)
+      + id       = (known after apply)
+      + instance = (known after apply)
+    }
+
+  # aws_instance.myInstance[0] will be created
+  + resource "aws_instance" "myInstance" {
+      + ami                          = "ami-06fd8a495a537da8b"
+      + arn                          = (known after apply)
+      + associate_public_ip_address  = (known after apply)
+      + availability_zone            = (known after apply)
+      + cpu_core_count               = (known after apply)
+      + cpu_threads_per_core         = (known after apply)
+      + get_password_data            = false
+      + host_id                      = (known after apply)
+      + id                           = (known after apply)
+      + instance_state               = (known after apply)
+      + instance_type                = "t2.micro"
+      + ipv6_address_count           = (known after apply)
+      + ipv6_addresses               = (known after apply)
+      + key_name                     = "terraform_keypair"
+      + outpost_arn                  = (known after apply)
+      + password_data                = (known after apply)
+      + placement_group              = (known after apply)
+      + primary_network_interface_id = (known after apply)
+      + private_dns                  = (known after apply)
+      + private_ip                   = (known after apply)
+      + public_dns                   = (known after apply)
+      + public_ip                    = (known after apply)
+      + secondary_private_ips        = (known after apply)
+      + security_groups              = (known after apply)
+      + source_dest_check            = true
+      + subnet_id                    = (known after apply)
+      + tags                         = {
+          + "Name"        = "dev"
+          + "Terraformed" = "true"
+        }
+      + tenancy                      = (known after apply)
+      + volume_tags                  = (known after apply)
+      + vpc_security_group_ids       = (known after apply)
+
+      + ebs_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + snapshot_id           = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+
+      + ephemeral_block_device {
+          + device_name  = (known after apply)
+          + no_device    = (known after apply)
+          + virtual_name = (known after apply)
+        }
+
+      + metadata_options {
+          + http_endpoint               = (known after apply)
+          + http_put_response_hop_limit = (known after apply)
+          + http_tokens                 = (known after apply)
+        }
+
+      + network_interface {
+          + delete_on_termination = (known after apply)
+          + device_index          = (known after apply)
+          + network_interface_id  = (known after apply)
+        }
+
+      + root_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+    }
+
+  # aws_instance.myInstance[1] will be created
+  + resource "aws_instance" "myInstance" {
+      + ami                          = "ami-06fd8a495a537da8b"
+      + arn                          = (known after apply)
+      + associate_public_ip_address  = (known after apply)
+      + availability_zone            = (known after apply)
+      + cpu_core_count               = (known after apply)
+      + cpu_threads_per_core         = (known after apply)
+      + get_password_data            = false
+      + host_id                      = (known after apply)
+      + id                           = (known after apply)
+      + instance_state               = (known after apply)
+      + instance_type                = "t2.micro"
+      + ipv6_address_count           = (known after apply)
+      + ipv6_addresses               = (known after apply)
+      + key_name                     = "terraform_keypair"
+      + outpost_arn                  = (known after apply)
+      + password_data                = (known after apply)
+      + placement_group              = (known after apply)
+      + primary_network_interface_id = (known after apply)
+      + private_dns                  = (known after apply)
+      + private_ip                   = (known after apply)
+      + public_dns                   = (known after apply)
+      + public_ip                    = (known after apply)
+      + secondary_private_ips        = (known after apply)
+      + security_groups              = (known after apply)
+      + source_dest_check            = true
+      + subnet_id                    = (known after apply)
+      + tags                         = {
+          + "Name"        = "dev"
+          + "Terraformed" = "true"
+        }
+      + tenancy                      = (known after apply)
+      + volume_tags                  = (known after apply)
+      + vpc_security_group_ids       = (known after apply)
+
+      + ebs_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + snapshot_id           = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+
+      + ephemeral_block_device {
+          + device_name  = (known after apply)
+          + no_device    = (known after apply)
+          + virtual_name = (known after apply)
+        }
+
+      + metadata_options {
+          + http_endpoint               = (known after apply)
+          + http_put_response_hop_limit = (known after apply)
+          + http_tokens                 = (known after apply)
+        }
+
+      + network_interface {
+          + delete_on_termination = (known after apply)
+          + device_index          = (known after apply)
+          + network_interface_id  = (known after apply)
+        }
+
+      + root_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+    }
+
+  # aws_security_group.elb will be created
+  + resource "aws_security_group" "elb" {
+      + arn                    = (known after apply)
+      + description            = "Managed by Terraform"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 8484
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 8484
+            },
+        ]
+      + name                   = "steeleye"
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + vpc_id                 = (known after apply)
+    }
+
+  # aws_security_group.ubuntu will be created
+  + resource "aws_security_group" "ubuntu" {
+      + arn                    = (known after apply)
+      + description            = "Allow HTTP, HTTPS and SSH traffic"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "HTTP"
+              + from_port        = 8484
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 8484
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "HTTPS"
+              + from_port        = 443
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 443
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = "SSH"
+              + from_port        = 22
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 22
+            },
+        ]
+      + name                   = "ubuntu-security-group"
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "terraform"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+Plan: 7 to add, 0 to change, 0 to destroy.
+
+------------------------------------------------------------------------
+
+This plan was saved to: plan0001
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "plan0001"
+
+$ 
+```
+<output truncated>
+    ...
+    ...
+    ...
+    
+And finally, terraform apply "plan0001" 
+
+```
+Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
+
+The state of your infrastructure has been saved to the path
+below. This state is required to modify and destroy your
+infrastructure, so keep it safe. To inspect the complete state
+use the `terraform show` command.
+
+State path: terraform.tfstate
+
+Outputs:
+
+DNS = ec2-54-75-14-167.eu-west-1.compute.amazonaws.com and ec2-34-251-110-249.eu-west-1.compute.amazonaws.com
+elb_dns_name = steeleye-26553243.eu-west-1.elb.amazonaws.com
+$
+```
 
 
 
